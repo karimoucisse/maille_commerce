@@ -21,7 +21,7 @@ const Footer = () => {
 
   return (
     <footer>
-      <div className="grid grid-rows-3 md:grid-cols-4 md:grid-rows-1 max-w-6xl mx-auto justify-items-center p-10 min-h-[25vh]">
+      <div className="grid grid-rows-3 md:grid-cols-4 md:grid-rows-1 max-w-7xl mx-auto justify-items-center p-10 min-h-[25vh]">
         <div className="mb-10 space-y-4 text-start w-full sm:w-sm h-full md:w-full">
           <h1 className="text-4xl">Menu principal</h1>
           <div className="flex flex-col space-y-2">

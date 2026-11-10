@@ -4,6 +4,7 @@ import { products } from '@/data/products'
 import { Product } from '@/types/product'
 import Image from 'next/image'
 import { notFound } from "next/navigation"
+
 type Props = {
     params: Promise<{ id: string }>
 }
@@ -15,7 +16,7 @@ export default async function Page({ params }: Props) {
     if (!product) notFound()
 
     return <div className='w-full'>
-        <div className='grid md:grid-cols-3 grid-rows-1 max-w-6xl mx-auto w-full px-6 py-10 gap-8'>
+        <div className='grid md:grid-cols-3 grid-rows-1 max-w-7xl mx-auto w-full px-6 py-10 gap-8'>
             <div className='bg-red-400 col-span-2 h-full relative aspect-square'>
                 <Image src={product?.image} alt={product?.name} fill />
             </div>
