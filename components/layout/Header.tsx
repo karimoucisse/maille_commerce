@@ -10,6 +10,7 @@ type LinkType = {
   href: string;
   label: string;
 };
+
 const Header = () => {
 
   const pathname = usePathname();
