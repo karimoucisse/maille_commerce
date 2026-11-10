@@ -22,21 +22,21 @@ export const products = [
   },
   {
     id: 4,
-    name: "caps gradient_blue",
+    name: "caps gradient blue",
     price: 29.99,
     image: "/caps/cap_gradient_blue.jpg",
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
   },
   {
     id: 5,
-    name: "caps gradient_brown",
+    name: "caps gradient brown",
     price: 19.99,
     image: "/caps/cap_gradient_brown.jpg",
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
   },
   {
     id: 6,
-    name: "caps gradient_green",
+    name: "caps gradient green",
     price: 29.99,
     image: "/caps/cap_gradient_green.jpg",
     description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
