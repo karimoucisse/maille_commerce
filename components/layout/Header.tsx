@@ -23,8 +23,8 @@ const Header = () => {
   ];
 
   const iconsLinks: LinkType[] = [
-    { href: "/account", label: <><CiUser /> Compte</> },
-    { href: "/cart", label: <><HiOutlineShoppingBag /> Panier</> },
+    { href: "/account", label: <CiUser className="text-xl"/> },
+    { href: "/cart", label: <HiOutlineShoppingBag className="text-xl" /> },
   ];
 
   return (
@@ -47,7 +47,7 @@ const Header = () => {
         </div>
         <Link
           href="/"
-          className="font-display text-2xl font-semibold tracking-tight text-zinc-900"
+          className="font-display text-2xl font-normal tracking-tight text-zinc-900"
         >
           Maille
         </Link>
@@ -62,9 +62,19 @@ const Header = () => {
             </Link>
           ))}
         </div>
-        <div className="flex items-center space-x-4 text-xl">
-          <CiUser />
-          <HiOutlineShoppingBag />
+        <div className="flex items-center space-x-2 sm:space-x-4 text-xl">
+          {iconsLinks.map((link, i) => (
+            <Link
+              key={link.href + i}
+              href={link.href}
+              onClick={() => (document.activeElement as HTMLElement)?.blur()}
+              className={`flex items-center rounded-lg gap-2 p-2 text-sm font-medium  $text-zinc-900`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          {/* <CiUser />
+          <HiOutlineShoppingBag /> */}
         </div>
       </div>
     </header>
