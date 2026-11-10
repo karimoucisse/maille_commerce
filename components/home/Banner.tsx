@@ -5,11 +5,11 @@ import Link from "next/link";
 
 const Banner = () => {
   return (
-    <div className="flex h-[80vh] justify-center items-center bg-[#F7E5D7] py-6">
+    <div className="flex h-[40vh] justify-center items-center bg-[#F7E5D7] py-6">
       <div className="flex flex-col justify-between items-center h-full  max-w-3xl">
-        <div className="relative w-90 h-60">
+        <div className="relative w-70 h-40">
           <Image
-            src="/caps/cap_gradient_blue.jpg"
+            src="/banner.jpg"
             alt="banner"
             fill
             className="object-cover"
