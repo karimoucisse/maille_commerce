@@ -6,7 +6,7 @@ import { IoIosSearch } from "react-icons/io";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { usePathname } from "next/navigation";
 
-type Link = {
+type LinkType = {
   href: string;
   label: string;
 };
@@ -14,7 +14,7 @@ const Header = () => {
 
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href;
-  const links: Link[] = [
+  const links: LinkType[] = [
     { href: "/", label: "Acceuil" },
     { href: "/catalogue", label: "Catalogue" },
     { href: "/contact", label: "Contact" },
