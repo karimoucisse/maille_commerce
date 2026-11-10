@@ -12,14 +12,15 @@ const Banner = () => {
             src="/banner.jpg"
             alt="banner"
             fill
+            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
             className="object-cover"
           />
         </div>
-        <p className="text-center text-2xl sm:text-5xl font-bold">
+        <h1 className="text-center text-2xl sm:text-5xl font-bold">
           {
             "la beauté réside dans l'art minutieux et l'attention portée au détail"
           }
-        </p>
+        </h1>
         <Link href="/catalogue" className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300 cursor-pointer">
           <p className="text-sm sm:text-lg">Achetez maintenant</p>
           <IoIosArrowRoundForward  className="text-2xl " />
