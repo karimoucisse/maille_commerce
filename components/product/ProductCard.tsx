@@ -23,7 +23,7 @@ const ProductCard = ({ product, priority = false }: Props) => {
           />
         </div>
         <div >
-          <h2 className="text-xl font-semibold">{product.name}</h2>
+          <h2 className="text-lg sm:text-xl font-semibold">{product.name}</h2>
           <p className="text-sm text-zinc-500">€{product.price}</p>
         </div>
       </div>
