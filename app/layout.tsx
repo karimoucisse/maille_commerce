@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import { Fraunces, DM_Sans } from 'next/font/google'
+import { Fraunces, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header";
+import { ToastContainer } from "react-toastify";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -15,8 +16,8 @@ import Header from "@/components/layout/Header";
 //   subsets: ["latin"],
 // });
 
-const display = Fraunces({ subsets: ['latin'], variable: '--font-display' })
-const body = DM_Sans({ subsets: ['latin'], variable: '--font-body' })
+const display = Fraunces({ subsets: ["latin"], variable: "--font-display" });
+const body = DM_Sans({ subsets: ["latin"], variable: "--font-body" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Header />
         <div className="flex flex-1 flex-col">
           {children}
+          <ToastContainer autoClose={2000} />
         </div>
         {/* <Footer /> */}
       </body>

@@ -2,6 +2,7 @@ import Banner from "@/components/home/Banner";
 import Hero from "@/components/home/Hero";
 import ProductList from "@/components/product/ProductList";
 import { products } from "@/data/products";
+import { ToastContainer } from "react-toastify";
 // 2xl:max-w-screen  2xl:px-100
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         </div>
       </div>
       <Banner />
+      
     </div>
   );
 }

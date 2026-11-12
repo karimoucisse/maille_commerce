@@ -7,12 +7,12 @@ type Props = {
   product: Product;
   priority?: boolean;
 };
-
+// react-toastify
 const ProductCard = ({ product, priority = false }: Props) => {
   return (
-    <Link href={`/product/${product.id.toString(16)}`} className="w-full">
+    <Link href={`/product/${product.id.toString(16)}`} className="w-full ">
       <div className="flex w-full flex-col gap-2">
-        <div className="relative aspect-square w-full overflow-hidden rounded-md">
+        <div className="relative aspect-square w-full overflow-hidden rounded-md cursor-pointer">
           <Image
             src={product.image}
             alt={product.name}
