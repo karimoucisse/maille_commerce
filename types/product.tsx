@@ -6,3 +6,6 @@ export type Product = {
   description: string;
 };
 
+export type CartItem = Product & {
+  quantity: number;
+};
