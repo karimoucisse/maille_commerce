@@ -22,7 +22,7 @@ export default function QuantitySelector({
 
   return (
     <div className="flex h-12 space-x-2">
-      <div className="grid grid-cols-3 p-2 gap-4 border w-30">
+      <div className="grid grid-cols-3 p-2 gap-4 border border-zinc-400 w-30">
         <button
           onClick={() => setCount((c) => Math.max(1, c - 1))}
           disabled={count == 1}
@@ -39,7 +39,7 @@ export default function QuantitySelector({
         </button>
       </div>
       <button
-        className="btn bg-[#0C4039] text-white font-normal lg:px-10 h-full"
+        className="btn text-sm  bg-[#0C4039] text-zinc-50 font-normal lg:px-10 h-full"
         onClick={handleCart}
       >
         Ajouter au panier
