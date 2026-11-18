@@ -12,18 +12,19 @@ const Banner = () => {
             src="/banner.jpg"
             alt="banner"
             fill
-            sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw"
+            sizes="(min-width: 640px) 280px, 240px"
             className="object-cover"
           />
         </div>
-        <h1 className="text-center text-2xl sm:text-5xl font-bold">
-          {
-            "la beauté réside dans l'art minutieux et l'attention portée au détail"
-          }
-        </h1>
-        <Link href="/catalogue" className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300 cursor-pointer">
-          <p className="text-sm sm:text-lg font-normal">Achetez maintenant</p>
-          <IoIosArrowRoundForward  className="text-2xl " />
+        <h2 className="text-center text-2xl font-bold sm:text-5xl">
+          la beauté réside dans l’art minutieux et l’attention portée au détail
+        </h2>
+        <Link
+          href="/catalogue"
+          className="group flex items-center gap-2 text-ink"
+        >
+          <span className="text-sm sm:text-lg">Achetez maintenant</span>
+          <IoIosArrowRoundForward className="text-2xl transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
     </div>

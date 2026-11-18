@@ -7,10 +7,10 @@ type FormFieldProps = {
   label?: string;
   css?: string;
 };
-// Reusable Formik field component that can be used across different forms in the application
+
 const FormField =  ({ name, type, placeholder, label, css="" }: FormFieldProps) => {
   return (
-    <Field name={name} >
+    <Field name={name}>
       {({ field, meta }) => (
         <div className={`${css}`}>
           {label && (

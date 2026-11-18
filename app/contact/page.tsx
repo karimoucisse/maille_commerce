@@ -29,7 +29,7 @@ const page = () => {
     }
   };
   return (
-    <div className="w-full h-full flex flex-col items-center pt-15 px-4">
+    <div className="w-full h-full flex flex-col items-center pt-15 px-6 space-y-10 ">
       <div>
         <p className="text-5xl text-center mb-2">Contact</p>
         <p className="text-xs text-center font-normal text-zinc-600">
@@ -46,43 +46,41 @@ const page = () => {
         validateOnBlur={false}
       >
         {({ isSubmitting }) => (
-          <Form className="space-y-4">
-            <div className="p-6 w-full sm:w-150 h-full">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <FormField
-                  name="name"
-                  type="text"
-                  placeholder="prénom"
-                  label="name"
-                />
-                <FormField
-                  name="email"
-                  type="text"
-                  placeholder="E-mail"
-                  label="email"
-                />
-                <FormField
-                  name="phone"
-                  type="text"
-                  placeholder="Téléphone"
-                  label="phone"
-                  css="sm:col-span-2"
-                />
-                <TextAreaField
-                  name="comment"
-                  type="text"
-                  placeholder="Commentaire"
-                  label="comment"
-                  css="sm:col-span-2 resize-none"
-                />
+          <Form className="w-full sm:max-w-xl">
+            <div className="grid gap-4 sm:grid-cols-2 w-full">
+              <FormField
+                name="name"
+                type="text"
+                placeholder="prénom"
+                label="name"
+              />
+              <FormField
+                name="email"
+                type="text"
+                placeholder="E-mail"
+                label="email"
+              />
+              <FormField
+                name="phone"
+                type="text"
+                placeholder="Téléphone"
+                label="phone"
+                css="sm:col-span-2"
+              />
+              <TextAreaField
+                name="comment"
+                type="text"
+                placeholder="Commentaire"
+                label="comment"
+                css="sm:col-span-2 resize-none"
+              />
 
-                <div className="flex justify-start">
-                  <SubmitButton
-                    isSubmitting={isSubmitting}
-                    label="Envoyé"
-                    css="py-3 px-8"
-                  />
-                </div>
+              <div className="flex justify-start">
+                <SubmitButton
+                  isSubmitting={isSubmitting}
+                  label="Envoyé"
+                  css="py-3 px-8"
+                />
               </div>
             </div>
           </Form>
