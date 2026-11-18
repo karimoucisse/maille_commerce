@@ -16,7 +16,9 @@ const page = () => {
             className="textarea w-full h-full sm:col-span-2 resize-none"
           ></textarea>
           <div className="flex justify-start">
-            <button className="bg-[#0C4039] text-zinc-50 text-sm py-3 px-8">Envoyer</button>
+            <button className="bg-[#0C4039] text-zinc-50 text-sm py-3 px-8">
+              Envoyer
+            </button>
           </div>
         </div>
       </div>
