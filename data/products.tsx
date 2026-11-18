@@ -1,86 +1,116 @@
-export const products = [
+import { Product } from "@/types/product";
+
+const DESCRIPTION =
+  "Bonnet en laine crocheté main, assemblé en granny squares et surmonté de petites oreilles. Une maille chaleureuse pour affronter l'hiver avec style.";
+
+const PRICE = 24.99;
+
+
+type Seed = {
+  id: string;
+  slug: string;
+  colorLabel: string;
+  file: string;
+  featured?: boolean;
+};
+
+// Chaque coloris est un produit à part entière (une page, un SEO, un stock).
+// beanie.jpg est identique à beanie_multi.jpg : seul beanie_multi.jpg est utilisé.
+const seeds: Seed[] = [
   {
-    id: 1,
-    name: "caps blue",
-    price: 19.99,
-    image: "/product/cap_blue.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-ecru-green",
+    slug: "bonnet-granny-ecru-vert",
+    colorLabel: "Écru & vert",
+    file: "beanie_green.jpg",
   },
   {
-    id: 2,
-    name: "caps brown",
-    price: 29.99,
-    image: "/product/cap_brown.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-sky-blue",
+    slug: "bonnet-granny-bleu-ciel",
+    colorLabel: "Bleu ciel",
+    file: "beanie_blue.jpg",
+    featured: true,
   },
   {
-    id: 3,
-    name: "caps dark_blue",
-    price: 19.99,
-    image: "/product/cap_dark_blue.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-black-orange",
+    slug: "bonnet-granny-noir-orange",
+    colorLabel: "Noir & orange",
+    file: "beanie_black_orange.jpg",
   },
   {
-    id: 4,
-    name: "caps gradient blue",
-    price: 29.99,
-    image: "/product/cap_gradient_blue.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-multi",
+    slug: "bonnet-granny-multicolore",
+    colorLabel: "Multicolore",
+    file: "beanie_multi.jpg",
   },
   {
-    id: 5,
-    name: "caps gradient brown",
-    price: 19.99,
-    image: "/product/cap_gradient_brown.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-pink",
+    slug: "bonnet-granny-noir-rose",
+    colorLabel: "Noir & rose",
+    file: "beanie_pink.jpg",
   },
   {
-    id: 6,
-    name: "caps gradient green",
-    price: 29.99,
-    image: "/product/cap_gradient_green.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-blue-pink",
+    slug: "bonnet-granny-noir-bleu-rose",
+    colorLabel: "Noir, bleu & rose",
+    file: "beanie_blue_pink.jpg",
   },
   {
-    id: 7,
-    name: "caps green",
-    price: 19.99,
-    image: "/product/cap_green.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-ecru-caramel",
+    slug: "bonnet-granny-ecru-caramel",
+    colorLabel: "Écru & caramel",
+    file: "beanie_brown.jpg",
   },
   {
-    id: 8,
-    name: "caps grey",
-    price: 29.99,
-    image: "/product/cap_grey.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-gradient-brown",
+    slug: "bonnet-granny-degrade-marron",
+    colorLabel: "Dégradé marron",
+    file: "beanie_gradient_brown.jpg",
   },
   {
-    id: 9,
-    name: "caps multi",
-    price: 19.99,
-    image: "/product/cap_multi.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-gradient-blue",
+    slug: "bonnet-granny-degrade-bleu",
+    colorLabel: "Dégradé bleu",
+    file: "beanie_gradient_blue.jpg",
   },
   {
-    id: 10,
-    name: "caps pink",
-    price: 29.99,
-    image: "/product/cap_pink.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-purple",
+    slug: "bonnet-granny-violet",
+    colorLabel: "Violet",
+    file: "beanie_purple.jpg",
   },
   {
-    id: 11,
-    name: "caps purple",
-    price: 19.99,
-    image: "/product/cap_purple.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
+    id: "granny-ear-red-black",
+    slug: "bonnet-granny-rouge-noir",
+    colorLabel: "Rouge & noir",
+    file: "beanie_red_black.jpg",
   },
   {
-    id: 12,
-    name: "caps red",
-    price: 29.99,
-    image: "/product/cap_red.jpg",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde fuga et ipsum nobis dicta nulla nesciunt distinctio dignissimos ut corporis, iure reprehenderit molestiae odio magnam harum animi qui nam vitae?"
-  }
+    id: "granny-ear-gray",
+    slug: "bonnet-granny-gris",
+    colorLabel: "Gris",
+    file: "beanie_gray.jpg",
+  },
 ];
+
+export const products: Product[] = seeds.map((s) => ({
+  id: s.id,
+  slug: s.slug,
+  name: `Bonnet Granny ${s.colorLabel.toLowerCase()}`,
+  colorLabel: s.colorLabel,
+  price: PRICE,
+  image: `/product/${s.file}`,
+  description: DESCRIPTION,
+  featured: s.featured,
+}))
+
+export const getProductBySlug = (slug: string) =>
+  products.find((p) => p.slug === slug);
+
+export const getProductById = (id: string) => products.find((p) => p.id === id);
+
+export const getFeaturedProduct = () =>
+  products.find((p) => p.featured) ?? products[0];
+
+/** Les autres coloris (pour le sélecteur de coloris) : tous les autres produits. */
+export const getSiblingProducts = (product: Product) =>
+  products.filter((p) => p.id !== product.id);

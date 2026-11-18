@@ -1,17 +1,22 @@
 import Image from "next/image";
 import { CartItem } from "@/types/product";
-
+import Link from "next/link";
 const Item = ({ item }: { item: CartItem }) => {
   return (
-    <div className="flex justify-between h-full w-full  shadow-xs p-2">
+    <div className="flex w-full p-2">
       <div className="flex gap-4 w-full h-full">
-        <Image
-          src={item.image}
-          alt={item.name}
-          width={100}
-          height={100}
-          className="object-cover rounded-sm"
-        />
+        <Link
+          href={`/product/${item?.slug}`}
+          className="relative h-24 w-24 shrink-0 overflow-hidden rounded-sm bg-sand"
+        >
+              <Image
+                src={item.image}
+                alt={item.name}
+                width={100}
+                height={100}
+                className="object-cover rounded-sm"
+              />
+        </Link>
         <div className=" spacing-y-1 flex flex-col">
           <p className="text-xl font-medium">{item.name}</p>
           <p className="text-sm text-zinc-500">{item.price}</p>
