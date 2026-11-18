@@ -1,42 +1,58 @@
+"use client";
+
 import Image from "next/image";
-import { CartItem } from "@/types/product";
 import Link from "next/link";
+import { HiOutlineTrash } from "react-icons/hi2";
+import QuantityStepper from "@/components/ui/QuantityStepper"
+import { useCartStore } from "@/stores/cart.store";
+import { formatPrice } from "@/lib/format";
+import type { CartItem } from "@/types/product";
+
 const Item = ({ item }: { item: CartItem }) => {
+  const setQuantity = useCartStore((s) => s.setQuantity);
+  const removeItem = useCartStore((s) => s.removeItem);
+
   return (
-    <div className="flex w-full p-2">
-      <div className="flex gap-4 w-full h-full">
-        <Link
-          href={`/product/${item?.slug}`}
-          className="relative h-24 w-24 shrink-0 overflow-hidden rounded-sm bg-sand"
-        >
-              <Image
-                src={item.image}
-                alt={item.name}
-                width={100}
-                height={100}
-                className="object-cover rounded-sm"
-              />
-        </Link>
-        <div className=" spacing-y-1 flex flex-col">
-          <p className="text-xl font-medium">{item.name}</p>
-          <p className="text-sm text-zinc-500">{item.price}</p>
+    <div className="flex w-full gap-4 p-2">
+      <Link
+        href={`/product/${item?.slug}`}
+        className="relative h-24 w-24 shrink-0 overflow-hidden rounded-sm bg-sand"
+      >
+        <Image
+          src={item.image}
+          alt={item.name}
+          fill
+          sizes="96px"
+          className="object-cover"
+        />
+      </Link>
+      
+      <div className="flex flex-1 flex-col justify-between gap-2">
+        <div className="flex justify-between gap-2">
+          <div>
+            <p className="text-lg font-medium">{item.name}</p>
+            <p className="text-sm text-ink-soft">
+              {formatPrice(item.price)} l’unité
+            </p>
+          </div>
+          <p className="text-sm font-medium">
+            {formatPrice(item.price * item.quantity)}
+          </p>
         </div>
-      </div>
-      <div className="flex items-end">
-        <div className="w-20 h-10 grid grid-cols-3  items-center  bg-white rounded-sm  border-zinc-200 shadow-2xs border">
+
+        <div className="flex items-center justify-between">
+          <QuantityStepper
+            size="sm"
+            value={item.quantity}
+            onChange={(q) => setQuantity(item.id, q)}
+          />
           <button
-            // onClick={() => setCount((c) => Math.max(1, c - 1))}
-            // disabled={count == 1}
-            className={`cursor-pointer text-lg font-medium`}
+            type="button"
+            aria-label={`Retirer ${item.name} du panier`}
+            onClick={() => removeItem(item.id)}
+            className="p-2 text-xl text-ink-soft transition-colors hover:text-terracotta"
           >
-            -
-          </button>
-          <p className="text-center text-xs font-medium">{1}</p>
-          <button
-            // onClick={() => setCount((c) => c + 1)}
-            className="text-lg cursor-pointer font-medium"
-          >
-            +
+            <HiOutlineTrash />
           </button>
         </div>
       </div>

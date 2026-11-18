@@ -22,7 +22,7 @@ const Banner = () => {
           }
         </h1>
         <Link href="/catalogue" className="flex items-center gap-2 group-hover:scale-105 transition-transform duration-300 cursor-pointer">
-          <p className="text-sm sm:text-lg">Achetez maintenant</p>
+          <p className="text-sm sm:text-lg font-normal">Achetez maintenant</p>
           <IoIosArrowRoundForward  className="text-2xl " />
         </Link>
       </div>

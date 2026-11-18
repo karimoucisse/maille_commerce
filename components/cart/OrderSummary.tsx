@@ -1,44 +1,66 @@
+"use client";
+
 import { IoPricetagOutline } from "react-icons/io5";
+import { useCartItems } from "@/hooks/useCartItems";
+import { useHydrated } from "@/hooks/useHydrated";
+import { getCartTotals } from "@/lib/cart";
+import { formatPrice } from "@/lib/format";
 
 const OrderSummary = () => {
-  const SummaryInfo = [
-    { label: "Nombre d'articles", value: "6" },
-    { label: "Prix", value: "120,00 €" },
-    { label: "Livraison", value: "15,00 €" },
+  const hydrated = useHydrated();
+  const items = useCartItems();
+  const totals = getCartTotals(items);
+  const isEmpty = !hydrated || totals.itemCount === 0;
+  const show = (value: string) => (hydrated ? value : "—");
+
+  const rows = [
+    { label: "Nombre d’articles", value: show(String(totals.itemCount)) },
+    { label: "Sous-total", value: show(formatPrice(totals.subtotal)) },
+    { label: "Livraison", value: show(formatPrice(totals.shipping)) },
   ];
+
   return (
-    <div className="shrink-0  flex-col border border-zinc-200 rounded-sm p-6">
-      <p className="text-lg font-semibold mb-2">Résumé de la commande</p>
+    <aside className="shrink-0 flex-col rounded-sm border border-ink/15 p-6 lg:max-h-96 lg:w-80">
+      <h2 className="mb-2 text-lg font-semibold">Résumé de la commande</h2>
       <div>
-        {SummaryInfo.map((info, index) => (
-          <div key={index} className="flex justify-between mb-1">
-            <p className="text-sm text-zinc-500">{info.label}</p>
-            <p className="text-sm font-medium">{info.value}</p>
+        {rows.map((row) => (
+          <div key={row.label} className="mb-1 flex justify-between">
+            <p className="text-sm text-ink-soft">{row.label}</p>
+            <p className="text-sm font-medium">{row.value}</p>
           </div>
         ))}
       </div>
-      <div className="divider"></div>
-      <div className="flex justify-between mb-1">
-        <p className="text-sm ">Total</p>
-        <p className="text-sm font-medium">135,00 €</p>
+      <div className="divider" />
+      <div className="mb-1 flex justify-between">
+        <p className="text-sm">Total</p>
+        <p className="text-sm font-medium">{show(formatPrice(totals.total))}</p>
       </div>
-      <div className="space-x-2 flex items-center mt-4">
-        <label className="input">
+
+      {/* Codes promo : pas encore gérés, volontairement désactivé. */}
+      <div className="mt-4 flex items-center gap-2">
+        <label className="input w-full">
           <IoPricetagOutline />
           <input
             type="text"
             placeholder="Code promo"
-            className="input input-bordered w-full max-w-xs"
+            disabled
+            aria-label="Code promo (bientôt disponible)"
           />
         </label>
-        <button className="btn text-sm font-normal bg-[#0C4039] text-zinc-50 rounded-lg">
+        <button type="button" disabled className="btn font-normal">
           Appliquer
         </button>
       </div>
-      <button className="btn font-normal bg-[#0C4039] text-zinc-50 mt-4 rounded-lg">
+
+      {/* Le tunnel de commande arrive en phase 6. */}
+      <button
+        type="button"
+        disabled={isEmpty}
+        className="btn bg-[#0C4039] text-white mt-4 w-full font-normal"
+      >
         Continuer
       </button>
-    </div>
+    </aside>
   );
 };
 
