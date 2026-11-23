@@ -38,7 +38,7 @@ export const signupYupSchema = Yup.object({
   postalCode: Yup.string().required('Le code postal est requis'),
   city: Yup.string().required('La ville est requise'),
   terms: Yup.boolean().oneOf([true], 'You must accept the terms'),
-  sex: Yup.string().oneOf(['male', 'female'], 'Le sexe est requis'),
+  sex: Yup.string().oneOf(['male', 'female', 'other'], 'Le sexe est requis'),
 });
 
 export const loginYupSchema = Yup.object({
