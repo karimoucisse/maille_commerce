@@ -26,7 +26,7 @@ const Item = ({ item }: { item: CartItem }) => {
           className="object-cover"
         />
       </Link>
-      
+
       <div className="flex flex-1 flex-col justify-between gap-2">
         <div className="flex justify-between gap-2">
           <div>

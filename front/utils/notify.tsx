@@ -10,7 +10,7 @@ type NotifyOptions = {
   theme?: 'light' | 'dark' | 'colored';
 };
 const baseOptions: NotifyOptions = {
-  position: 'top-right',
+  position: 'top-center',
   autoClose: 2000,
   hideProgressBar: true,
   pauseOnHover: false,
