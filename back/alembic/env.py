@@ -1,5 +1,5 @@
 from logging.config import fileConfig
-
+from app.models import user, product, cart, order
 from sqlalchemy import engine_from_config, pool
 
 from alembic import context
@@ -11,7 +11,8 @@ from app.db.base import Base
 config = context.config
 
 settings = get_settings()
-config.set_main_option("sqlalchemy.url", settings.database_url)
+database_url = f"postgresql+psycopg://{settings.postgres_user}:{settings.postgres_password}@{settings.postgres_host}:{settings.postgres_port}/{settings.postgres_db}"
+config.set_main_option("sqlalchemy.url", database_url)
 target_metadata = Base.metadata
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
