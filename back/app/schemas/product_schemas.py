@@ -1,5 +1,7 @@
 from datetime import datetime
-from pydantic import BaseModel, Field, ConfigDict
+
+from pydantic import BaseModel, ConfigDict, Field
+
 
 class ProductCreate(BaseModel):
 	slug: str = Field(..., max_length=200)
@@ -11,6 +13,7 @@ class ProductCreate(BaseModel):
 	stock: int = 0
 
 	model_config = ConfigDict(from_attributes=True)
+
 
 class ProductRead(BaseModel):
 	id: int

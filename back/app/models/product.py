@@ -1,7 +1,10 @@
 from datetime import datetime
-from sqlalchemy import String, Integer, Float, DateTime, func
+
+from sqlalchemy import DateTime, Float, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column
+
 from app.db.base import Base
+
 
 class Product(Base):
 	__tablename__ = "products"
@@ -14,5 +17,6 @@ class Product(Base):
 	size: Mapped[str | None] = mapped_column(String(50), default="unique")
 	price: Mapped[float] = mapped_column(Float, nullable=False)
 	stock: Mapped[int] = mapped_column(default=0)
-	created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
-
+	created_at: Mapped[datetime] = mapped_column(
+		DateTime(timezone=True), server_default=func.now(), nullable=False
+	)
