@@ -6,11 +6,13 @@ class Settings(BaseSettings):
 	"""Application settings."""
 	app_name: str = "My Commerce"
 
-	database_url: str
 	secret_key: str
-	# access_token_minutes: int = 30
 	cors_origins: list[str] = ["http://localhost:5173"]  # ton front React
-
+	postgres_host: str
+	postgres_port: int
+	postgres_user: str
+	postgres_password: str
+	postgres_db: str
 	model_config = SettingsConfigDict(env_file=".env", env_prefix="CM_")
 
 
