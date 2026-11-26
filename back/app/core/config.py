@@ -16,6 +16,9 @@ class Settings(BaseSettings):
 	postgres_user: str
 	postgres_password: str
 	postgres_db: str
+	secret_key: str
+	algorithm: str = "HS256"
+	access_token_minutes: int = 3
 	model_config = SettingsConfigDict(env_file=".env", env_prefix="CM_")
 
 

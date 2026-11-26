@@ -1,5 +1,5 @@
 from logging.config import fileConfig
-from app.models import user, product, cart, order
+import app.models
 from sqlalchemy import engine_from_config, pool
 
 from alembic import context

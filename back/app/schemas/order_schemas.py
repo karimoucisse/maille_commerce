@@ -31,3 +31,6 @@ class OrderOut(BaseModel):
 	total_cents: int
 	created_at: datetime
 	items: list[OrderItemOut]
+
+class OrderStatusUpdate(BaseModel):
+	status: OrderStatus

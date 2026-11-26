@@ -19,8 +19,8 @@ class User(Base):
 	created_at: Mapped[datetime] = mapped_column(
 		DateTime(timezone=True), server_default=func.now(), nullable=False
 	)
-	sex: Mapped[str] = mapped_column("men" | "women" | "other")
-	adress: Mapped[str] = mapped_column(String(200))
-	city: Mapped[str] = mapped_column(String(100))
-	postalCode: Mapped[str] = mapped_column(String(20))
+	# sex: Mapped[str] = mapped_column("men" | "women" | "other")
+	adress: Mapped[str] = mapped_column(String(200), default="")
+	city: Mapped[str] = mapped_column(String(100), default="")
+	postalCode: Mapped[str] = mapped_column(String(20), default="")
 	terms: Mapped[bool] = mapped_column(default=False)

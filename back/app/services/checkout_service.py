@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session, selectinload
 from app.models.cart import Cart
 from app.models.order import Order, OrderItem, OrderStatus
 from app.models.product import Product
-from app.schemas.order import CheckoutRequest
+from app.schemas.order_schemas import CheckoutRequest
 
 
 class CheckoutError(Exception):
